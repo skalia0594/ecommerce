@@ -15,7 +15,7 @@ a{
   text-decoration: none;
 }
 a:hover{
-  color: black;
+  color: grey;
 }
 .grid-container{
   display: grid;
@@ -99,7 +99,7 @@ footer{
 }
 .button {
   padding: 1rem;
-  border: .1rem solid gold;
+  border: .1rem solid pink;
   background-color: white;
   border-radius: .5rem;
 }
@@ -108,5 +108,18 @@ footer{
 }
 .button.primary {
   background-color: pink;
-  font-size: 1.5rem;
+  font-size: 1.8rem;
+}
+
+/* Filter */
+.filter {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  margin: 1rem;
+  border-bottom: .1rem lightpink solid;
+}
+.filter div {
+  flex: 1;
 }
