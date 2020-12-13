@@ -137,13 +137,13 @@ footer{
  }
 
 .cart-list {
-  /* padding: 0rem; */
+  padding: 1rem;
   list-style-type: none;
   width : 100%;
 }
 .cart-list li {
   display: flex;
-  
+  justify-content: space-around;
 }
 .cart-list img {
   width: 5rem;
@@ -151,7 +151,12 @@ footer{
 .cart-list li div {
   padding: .5rem;
 }
-.cart-list li .title,
+.cart-list li .title{ 
+  flex-grow: 2;
+  width: 10rem;
+}
 .cart-list li .details{
-  width : 10rem}
+  flex-grow: 1;
+  width: 5rem;
+}
 
