@@ -13,6 +13,7 @@ body, input, select, button, textarea {
 }
 a{
   text-decoration: none;
+  color: black;
 }
 a:hover{
   color: grey;
@@ -86,7 +87,7 @@ footer{
 }
 .product-price{
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: center;
 }
 .product-price div, 
@@ -100,7 +101,7 @@ footer{
 .button {
   padding: 1rem;
   border: .1rem solid pink;
-  background-color: white;
+  background-color: lightgrey;
   border-radius: .5rem;
 }
 .button:hover{
@@ -123,3 +124,34 @@ footer{
 .filter div {
   flex: 1;
 }
+ /* Cart */
+
+ .cart{
+   display: flex;
+   align-items: center;
+   padding: 1rem;
+   margin: 1.2rem;
+ }
+ .cart-header {
+   border-bottom: .1rem lightpink solid;
+ }
+
+.cart-list {
+  /* padding: 0rem; */
+  list-style-type: none;
+  width : 100%;
+}
+.cart-list li {
+  display: flex;
+  
+}
+.cart-list img {
+  width: 5rem;
+}
+.cart-list li div {
+  padding: .5rem;
+}
+.cart-list li .title,
+.cart-list li .details{
+  width : 10rem}
+
