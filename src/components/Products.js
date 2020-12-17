@@ -27,7 +27,8 @@ class Products extends Component {
         return (
             <div>
                 <Fade bottom cascade>
-                    <ul className="products">
+                    {(!this.props.products) ? <div>Loading...</div> : 
+                        <ul className="products">
                         {this.props.products.map(product => {
                             return (
                                 <li key={product._id}>
@@ -45,7 +46,8 @@ class Products extends Component {
                             )
                         }
                         )}
-                    </ul>
+                        </ul>
+                    }
                 </Fade>
                 { product && 
                     <Modal isOpen={true} ariaHideApp={false} onRequestClose={this.closeModal}>
@@ -73,6 +75,6 @@ class Products extends Component {
     }
 }
 
-export default connect(state => ({products : state.products.items}), {
+export default connect(state => ({products : state.products.filteredItems}), {
     fetchProducts,
 })(Products);
