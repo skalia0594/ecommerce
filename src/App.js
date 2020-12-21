@@ -7,65 +7,7 @@ import store from "./store";
 import {Provider} from "react-redux";
 
 class App extends React.Component {
-  constructor(props) {
-    super();
-    this.state={
-      cartItems : JSON.parse(localStorage.getItem("cartItems")) || [],
-    }
-  }
-  createOrder = (order) => {
-    alert("Order confirmed for "+ order["name"]);
-  }
-  addToCart = product => {
-    const cartItems = this.state.cartItems.slice();
-    let alreadyPresent= false;
-    cartItems.forEach(item => {
-      if(item["_id"] === product["_id"]){ 
-        item["count"] +=1;
-        alreadyPresent = true;  
-      } 
-    });
-    if(!alreadyPresent) {
-      cartItems.push({...product, count:1});
-    }
-    this.setState({cartItems: cartItems});
-    localStorage.setItem("cartItems", JSON.stringify(cartItems));
-  }
-  removeItem = product => {
-    const cartItems = this.state.cartItems.filter(item => item["_id"]!== product["_id"]);
-    this.setState({
-      cartItems
-    });
-    localStorage.setItem("cartItems", JSON.stringify(cartItems));
-  }
-  // filterSize = e => {
-  //   if(e.target.value){ 
-  //     this.setState({
-  //       size: e.target.value,
-  //       products : data.products.filter(product => 
-  //                     product["availableSizes"].includes(e.target.value)
-  //                 ),
-  //       sort:""
-  //     })
-  //   }else {  // all case
-  //     this.setState({
-  //       size: e.target.value,
-  //       products: data.products
-  //     });
-  //   }
-  // }
-  // sortPrice = e => {
-  //   // console.log(e.target.value);
-  //   this.setState((prevState)=>({
-  //     sort: e.target.value,
-  //     products : prevState.products.slice().sort((a,b) =>(
-  //       e.target.value === "Highest" ?(a["price"]<b["price"]? 1:-1) : 
-  //       e.target.value === "Lowest" ?(a["price"]>b["price"]? 1:-1) :
-  //       (a["_id"]>b["_id"]? 1:-1)
-  //     )),
-  //   }));
-      
-  // }
+  
   render(){
     return (
       <Provider store= {store}>
@@ -77,10 +19,10 @@ class App extends React.Component {
             <div className="content">
               <div className="main-content">
                 <Filter />
-                <Products addToCart={this.addToCart}/>
+                <Products />
               </div>
               <div className="side-bar">
-                <Cart cartItems= {this.state.cartItems} removeItem= {this.removeItem} createOrder= {this.createOrder}/>
+                <Cart />
               </div>
             </div>
           </main>
