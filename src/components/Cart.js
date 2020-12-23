@@ -32,6 +32,7 @@ class Cart extends Component {
             "total": this.props.cartItems.reduce((acc, curr) => acc + (curr["price"]*curr["count"]), 0),
           }
         this.props.createOrder(order);
+        this.setState({showCheckout: false, name: "", email :"", address: ""});
     }
     closeModal = () => {
         this.props.clearOrder();
@@ -102,28 +103,28 @@ class Cart extends Component {
                             <Zoom>
                                 <button onClick={this.closeModal} className="close-modal">x</button>
                                 <div className="order-details">
-                                    <h3>Your order has been placed.</h3>
+                                    <h3 className="success-message">Your order has been placed.</h3>
                                     <h2>Order {order["_id"]}</h2>
                                     <ul>
                                     <li>
                                         <div>Name:</div>
-                                        <div>{order["name"]}</div>
+                                        <div className="item">{order["name"]}</div>
                                     </li>
                                     <li>
                                         <div>Email:</div>
-                                        <div>{order["email"]}</div>
+                                        <div className="item">{order["email"]}</div>
                                     </li>
                                     <li>
                                         <div>Address:</div>
-                                        <div>{order["address"]}</div>
+                                        <div className="item">{order["address"]}</div>
                                     </li>
                                     <li>
                                         <div>Total:</div>
-                                        <div>{formatCurrency(order["total"])}</div>
+                                        <div className="item">{formatCurrency(order["total"])}</div>
                                     </li>
                                     <li>
-                                        <div>Cart Items:</div>
-                                        <div>{order["cartItems"].map(item => <div>{item["count"]+ "x" +item["title"]}</div>)}</div>
+                                        <div>Items:</div>
+                                        <div>{order["cartItems"].map(item => <div className="item">{item["count"]+ "x" +item["title"]}</div>)}</div>
                                     </li>
                                     </ul>
                                 </div>
