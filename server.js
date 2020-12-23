@@ -9,9 +9,9 @@ const app = express();
 app.use(express.json());
 app.use("/api/products", product);
 app.use("/api/orders", order);
-app.use("/", (req, res) => {
-    res.send("This is home");
-})
+// app.use("/", (req, res) => {
+//     res.send("This is home");
+// })
 
 mongoose.connect(process.env.DB_Connection, {
     useNewUrlParser: true,
