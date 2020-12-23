@@ -2,10 +2,12 @@ const express = require("express");
 const mongoose = require("mongoose");
 require("dotenv/config");
 const product = require("./routes/product");
+const order = require("./routes/order");
 
 const app = express();
 app.use(express.json());
-app.use("/api", product);
+app.use("/api/products", product);
+app.use("/api/orders", order);
 app.use("/", (req, res) => {
     res.send("This is home");
 })
